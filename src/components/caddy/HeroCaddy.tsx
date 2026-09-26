@@ -1,5 +1,5 @@
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
-import heroArt from "@/assets/hero-dental.jpg";
+import heroArt from "@/assets/caddy-hero.png";
 
 /**
  * Hero visual: a warm dental clinic illustration with idle float,
