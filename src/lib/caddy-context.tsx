@@ -1,5 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import type { ReactNode } from "react";
+import type React from "react";
 import {
   INITIAL_STATE,
   loadState,
@@ -23,7 +24,9 @@ type Ctx = {
   logToday: () => void;
 };
 
-const CaddyContext = createContext<Ctx | null>(null);
+// Keep one context identity across hot reloads so providers and consumers never diverge.
+const g = globalThis as unknown as { __caddyCtx?: React.Context<Ctx | null> };
+const CaddyContext = g.__caddyCtx ?? (g.__caddyCtx = createContext<Ctx | null>(null));
 
 export function CaddyProvider({ children }: { children: ReactNode }) {
   const [state, setState] = useState<CaddyState>(INITIAL_STATE);
