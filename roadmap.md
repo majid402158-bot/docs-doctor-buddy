@@ -27,3 +27,5 @@
 - Typography/contrast pass (ALL-CAPS headings, cream-on-cream cards, safety warning contrast)
 - Bell icon aria-label; disabled reception controls styling
 - Treatment picker tap targets
+- Preserve the current hero visual style; improve only its mobile arrangement and first-page flow
+- Redesign the footer so it renders cleanly and beautifully on mobile
