@@ -1,5 +1,5 @@
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
-import heroArt from "@/assets/hero-dental.jpg";
+import heroArt from "@/assets/caddy-hero.png";
 
 /**
  * Hero visual: a warm dental clinic illustration with idle float,
@@ -50,7 +50,7 @@ export function HeroCaddy() {
 
         <motion.img
           src={heroArt}
-          alt="Illustration of a friendly dentist with a smiling patient at Crescent & Pearl Dental"
+          alt="Caddy, the friendly Crescent & Pearl Dental companion"
           width={1024}
           height={1024}
           className="relative z-10 size-full rounded-[2.5rem] object-cover drop-shadow-[0_28px_45px_rgba(0,0,0,0.28)]"
