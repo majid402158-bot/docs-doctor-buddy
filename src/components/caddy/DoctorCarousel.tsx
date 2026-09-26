@@ -148,7 +148,6 @@ function DoctorCard({
 export function DoctorCarousel() {
   const trackRef = useRef<HTMLDivElement>(null);
   const [edges, setEdges] = useState({ start: true, end: false });
-  const { scrollXProgress } = useScroll({ container: trackRef, axis: "x" });
 
   const measure = useCallback(() => {
     const el = trackRef.current;
@@ -236,7 +235,6 @@ export function DoctorCarousel() {
                 key={d.id}
                 doctor={d}
                 index={i}
-                total={DOCTORS.length}
               />
             ))}
           </div>
