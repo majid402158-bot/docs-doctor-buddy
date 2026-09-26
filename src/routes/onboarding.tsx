@@ -10,13 +10,13 @@ import { EMPTY_PROFILE, type CaddyProfile } from "@/lib/caddy-store";
 export const Route = createFileRoute("/onboarding")({
   head: () => ({
     meta: [
-      { title: "Set up your health profile · Caddy Care" },
+      { title: "Set up your health profile · Crescent & Pearl" },
       {
         name: "description",
         content:
           "Tell Caddy about your health basics — blood group, allergies, conditions and emergency contact — so every doctor sees the full picture.",
       },
-      { property: "og:title", content: "Set up your health profile · Caddy Care" },
+      { property: "og:title", content: "Set up your health profile · Crescent & Pearl" },
       {
         property: "og:description",
         content: "A three-step profile that makes every future visit faster.",

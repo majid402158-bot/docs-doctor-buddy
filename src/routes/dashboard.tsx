@@ -12,13 +12,13 @@ import type { Report } from "@/lib/caddy-store";
 export const Route = createFileRoute("/dashboard")({
   head: () => ({
     meta: [
-      { title: "Your health vault · Caddy Care" },
+      { title: "Your health vault · Crescent & Pearl" },
       {
         name: "description",
         content:
-          "Your Caddy Care dashboard — saved reports, care streak, live notifications and the visit history your doctor can see.",
+          "Your Crescent & Pearl dashboard — saved reports, care streak, live notifications and the visit history your doctor can see.",
       },
-      { property: "og:title", content: "Your health vault · Caddy Care" },
+      { property: "og:title", content: "Your health vault · Crescent & Pearl" },
       {
         property: "og:description",
         content: "Reports, streaks and queue alerts in one calm place.",
@@ -78,7 +78,7 @@ function Dashboard() {
             >
               <Stethoscope aria-hidden className="size-4" />
             </span>
-            <span className="font-display text-lg font-extrabold">Caddy Care</span>
+            <span className="font-display text-lg font-extrabold">Crescent & Pearl</span>
           </Link>
           <nav className="ml-auto flex items-center gap-2">
             <Link

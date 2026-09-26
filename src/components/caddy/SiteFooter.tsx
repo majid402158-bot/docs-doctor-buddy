@@ -160,7 +160,7 @@ export function SiteFooter() {
           </motion.p>
 
           <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-5 text-[0.7rem] font-semibold text-muted-foreground">
-            <p>© {new Date().getFullYear()} Crescent & Pearl Dental (demo) · Powered by Caddy Care</p>
+            <p>© {new Date().getFullYear()} Crescent & Pearl Dental (demo) · Powered by Crescent & Pearl Dental</p>
             <p className="inline-flex items-center gap-1.5">
               Made with
               <motion.span

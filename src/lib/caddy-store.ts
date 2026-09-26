@@ -1,5 +1,5 @@
 /**
- * Front-end only mock store for the Caddy Care UI pass.
+ * Front-end only mock store for the Crescent & Pearl UI pass.
  * Persists to localStorage so the login -> profile -> dashboard flow feels real
  * before any backend is wired in.
  */

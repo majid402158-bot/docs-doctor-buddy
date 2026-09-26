@@ -20,13 +20,13 @@ export const Route = createFileRoute("/profile")({
   validateSearch: searchSchema,
   head: () => ({
     meta: [
-      { title: "Patient Profile — Caddy Care Health Vault" },
+      { title: "Patient Profile — Crescent & Pearl Health Vault" },
       {
         name: "description",
         content:
-          "Your Caddy Care patient profile: visit history, live queue position, prescriptions, lab reports and your care streak — all in one glass dashboard.",
+          "Your Crescent & Pearl patient profile: visit history, live queue position, prescriptions, lab reports and your care streak — all in one glass dashboard.",
       },
-      { property: "og:title", content: "Patient Profile — Caddy Care Health Vault" },
+      { property: "og:title", content: "Patient Profile — Crescent & Pearl Health Vault" },
       {
         property: "og:description",
         content:

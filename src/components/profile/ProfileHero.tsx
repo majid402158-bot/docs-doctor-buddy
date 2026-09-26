@@ -44,7 +44,7 @@ export function ProfileHero({ patient }: { patient: Patient }) {
           />
           <motion.img
             src={patient.avatar}
-            alt={`${patient.name}, Caddy Care patient`}
+            alt={`${patient.name}, Crescent & Pearl patient`}
             width={768}
             height={768}
             className="relative size-32 rounded-full object-cover sm:size-36"

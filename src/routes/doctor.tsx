@@ -15,7 +15,7 @@ export const Route = createFileRoute("/doctor")({
       {
         name: "description",
         content:
-          "The Caddy Care doctor console — see today's queue, open any patient's full visit history and read the reports they shared with you.",
+          "The Crescent & Pearl doctor console — see today's queue, open any patient's full visit history and read the reports they shared with you.",
       },
       { property: "og:title", content: "Dentist workspace · Crescent & Pearl Dental" },
       {
