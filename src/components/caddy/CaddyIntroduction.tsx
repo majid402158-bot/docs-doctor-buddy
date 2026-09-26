@@ -59,7 +59,7 @@ export function CaddyIntroduction() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.35 }}
           transition={{ duration: 0.5, delay: 0.14, ease: "easeOut" }}
-          className="mt-2 font-hero text-2xl uppercase leading-tight sm:text-3xl"
+          className="mt-2 text-2xl font-extrabold leading-tight sm:text-3xl"
         >
           Hi, I’m Caddy. <span className="text-primary">Tell me what’s going on.</span>
         </motion.h2>
@@ -94,7 +94,7 @@ export function CaddyIntroduction() {
 
 export function FloatingCaddy() {
   return (
-    <div className="fixed bottom-3 right-3 z-40 sm:bottom-6 sm:right-6">
+    <div className="fixed bottom-6 right-6 z-40 hidden sm:block">
       <Button type="button" onClick={scrollToCaddy} aria-label="Talk to Caddy, demo text guide" title="Talk to Caddy, demo text guide" className="group relative h-auto gap-1 rounded-full border border-primary/30 bg-card py-1 pl-1 pr-3 text-foreground shadow-[var(--shadow-card-hover)] hover:bg-secondary focus-visible:ring-2 sm:pr-5">
         <span className="absolute -inset-1 -z-10 rounded-full border border-primary/40 caddy-float-ring" aria-hidden />
         <img src={companion} alt="" width={816} height={816} loading="lazy" className="h-14 w-14 shrink-0 object-contain sm:h-16 sm:w-16" />

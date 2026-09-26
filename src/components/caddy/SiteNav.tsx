@@ -15,14 +15,14 @@ const LINKS = [
 
 export function UrgentStrip() {
   return (
-    <p className="mx-auto mb-3 flex max-w-6xl items-start gap-2 rounded-2xl bg-accent/15 px-4 py-2 text-xs font-semibold text-accent-foreground sm:items-center">
+    <p className="mx-auto mb-2 grid max-w-6xl grid-cols-[auto_minmax(0,1fr)] items-start gap-2 rounded-lg bg-accent/20 px-3 py-2 text-[11px] font-semibold leading-snug text-accent-foreground sm:mb-3 sm:flex sm:items-center sm:px-4 sm:text-xs">
       <AlertTriangle aria-hidden className="mt-0.5 size-3.5 shrink-0 sm:mt-0" />
       <span>
-        Severe pain, swelling, bleeding or a knocked-out tooth?{" "}
+        Dental emergency?{" "}
         <Link to="/book" search={{ service: "emergency" }} className="underline underline-offset-2">
-          Book an emergency assessment
+          Book urgent care.
         </Link>{" "}
-        — if swelling spreads or breathing is hard, go to the nearest hospital emergency.
+        Trouble breathing or spreading swelling? Go to hospital now.
       </span>
     </p>
   );

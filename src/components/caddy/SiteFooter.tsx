@@ -1,6 +1,7 @@
 import { motion, useReducedMotion } from "motion/react";
 import { Link } from "@tanstack/react-router";
-import { Heart, Instagram, Linkedin, Twitter } from "lucide-react";
+import { CalendarCheck, Heart, MapPin, Phone } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { ToothMark } from "./ToothMark";
 
 const COLUMNS: { title: string; links: { label: string; to?: string }[] }[] = [
@@ -46,10 +47,10 @@ export function SiteFooter() {
   const calm = useReducedMotion();
 
   return (
-    <footer className="relative mt-24 overflow-hidden">
+    <footer className="relative mt-16 overflow-hidden sm:mt-24">
       {/* marquee ribbon */}
       <div
-        className="relative overflow-hidden py-2.5"
+        className="relative hidden overflow-hidden py-2.5 sm:block"
         style={{ background: "var(--gradient-care)" }}
         aria-hidden
       >
@@ -72,8 +73,8 @@ export function SiteFooter() {
       <div className="relative bg-secondary/60">
         <div aria-hidden className="clinic-grain pointer-events-none absolute inset-0 opacity-50" />
 
-        <div className="relative mx-auto max-w-6xl px-5 pb-9 pt-12 sm:px-8">
-          <div className="grid gap-10 lg:grid-cols-[1.3fr_2fr]">
+        <div className="relative mx-auto max-w-6xl px-5 pb-7 pt-8 sm:px-8 sm:pb-9 sm:pt-12">
+          <div className="grid gap-7 lg:grid-cols-[1.3fr_2fr] lg:gap-10">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -86,28 +87,19 @@ export function SiteFooter() {
                   Crescent<span className="foil-text foil-animate"> &amp; Pearl</span>
                 </span>
               </div>
-              <p className="mt-4 max-w-sm text-[0.8rem] leading-relaxed text-muted-foreground">
-                Calm, precise family dentistry. Demo contact: hello@crescentpearl.example · +92 300 000 0000 (demo). All details on this site are demonstration data.
+               <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted-foreground">
+                 Calm, clear family dentistry with simple booking and transparent next steps.
               </p>
-
-              <div className="mt-5 flex gap-2">
-                {[Twitter, Instagram, Linkedin].map((Icon, i) => (
-                  <motion.a
-                    key={i}
-                    href="#"
-                    aria-label="Clinic social (demo)"
-                    whileHover={{ y: -4, rotate: -6 }}
-                    whileTap={{ scale: 0.92 }}
-                    transition={{ type: "spring", stiffness: 420, damping: 14 }}
-                    className="glass-card grid size-9 place-items-center rounded-xl"
-                  >
-                    <Icon aria-hidden className="size-3.5" />
-                  </motion.a>
-                ))}
+               <div className="mt-4 grid gap-2 text-xs font-semibold text-muted-foreground sm:flex sm:flex-wrap sm:gap-4">
+                 <span className="inline-flex items-center gap-2"><Phone aria-hidden className="size-3.5 text-primary" /> +92 300 000 0000 (demo)</span>
+                 <span className="inline-flex items-center gap-2"><MapPin aria-hidden className="size-3.5 text-primary" /> Karachi (demo location)</span>
               </div>
+               <Button asChild className="mt-5 h-10 rounded-md px-4 font-extrabold">
+                 <Link to="/book"><CalendarCheck aria-hidden /> Book appointment</Link>
+               </Button>
             </motion.div>
 
-            <div className="grid gap-8 sm:grid-cols-3">
+             <div className="grid grid-cols-2 gap-x-6 gap-y-7 sm:grid-cols-3">
               {COLUMNS.map((col, ci) => (
                 <motion.div
                   key={col.title}
@@ -124,7 +116,7 @@ export function SiteFooter() {
                   <p className="text-[0.65rem] font-extrabold uppercase tracking-[0.18em] text-primary">
                     {col.title}
                   </p>
-                  <ul className="mt-3.5 space-y-2 text-[0.8rem] font-semibold">
+                   <ul className="mt-3 space-y-2 text-[0.8rem] font-semibold">
                     {col.links.map((l) => (
                       <li key={l.label}>
                         {l.to ? (
@@ -147,7 +139,7 @@ export function SiteFooter() {
             </div>
           </div>
 
-          <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-5 text-[0.7rem] font-semibold text-muted-foreground">
+          <div className="mt-7 flex flex-col gap-2 border-t border-border pt-4 text-[0.7rem] font-semibold text-muted-foreground sm:mt-10 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-4 sm:pt-5">
             <p>© {new Date().getFullYear()} Crescent & Pearl Dental (demo)</p>
             <p className="inline-flex items-center gap-1.5">
               Made with

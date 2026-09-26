@@ -77,8 +77,8 @@ export function VisitJourney() {
     <section className="pt-20" aria-labelledby="visit-story-title">
       <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
         <motion.div initial={reducedMotion ? false : { opacity: 0, x: -44 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.55 }}>
-          <p className="font-hero text-sm uppercase text-primary">A visit with Caddy</p>
-          <h2 id="visit-story-title" className="mt-2 max-w-xl font-hero text-4xl uppercase leading-tight sm:text-5xl">From “I’m not sure” to “I’ve got this.”</h2>
+          <p className="text-sm font-extrabold text-primary">A visit with Caddy</p>
+          <h2 id="visit-story-title" className="mt-2 max-w-xl text-4xl font-extrabold leading-tight sm:text-5xl">From “I’m not sure” to “I’ve got this.”</h2>
         </motion.div>
         <motion.p initial={reducedMotion ? false : { opacity: 0, x: 44 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.55, delay: 0.1 }} className="max-w-xs text-sm text-muted-foreground">A little help at every turn, from the first question to the next step.</motion.p>
       </div>
@@ -109,12 +109,12 @@ export function VisitJourney() {
         ))}
       </ol>
 
-      <div id="caddy-guide" className="mt-8 grid scroll-mt-28 gap-6 border-y border-border py-7 md:grid-cols-[0.9fr_1.1fr] md:items-center">
+      <div id="caddy-guide" className="mt-8 grid scroll-mt-28 gap-5 rounded-lg border border-border bg-card p-5 shadow-[var(--shadow-card)] sm:p-7 md:grid-cols-[0.9fr_1.1fr] md:items-center">
         <div>
           <div className="flex items-center gap-2 text-primary"><MessageCircle aria-hidden className="size-5" /><span className="text-xs font-extrabold uppercase">Talk to Caddy</span></div>
           <h3 className="mt-2 text-2xl font-extrabold">What’s on your mind?</h3>
           <p className="mt-2 max-w-sm text-sm text-muted-foreground">Tell me what’s bothering you, or just say what kind of visit you’re looking for.</p>
-          <p className="mt-3 text-xs text-muted-foreground">Demo guide · a simple suggestion, not a live chat or medical advice. Your words aren’t saved.</p>
+          <p className="mt-3 inline-flex rounded-md bg-secondary px-2.5 py-1.5 text-xs font-semibold text-muted-foreground">Unsaved demo guide · not live medical advice</p>
           <Button asChild variant="outline" className="mt-5 h-11 font-extrabold"><Link to="/book"><CalendarDays aria-hidden /> Book appointment</Link></Button>
         </div>
         <div aria-live="polite">

@@ -53,12 +53,12 @@ function Home() {
   return (
     <PageShell>
       {/* HERO */}
-      <section className="grid items-center gap-10 pt-10 lg:grid-cols-[1.1fr_1fr]">
+      <section className="grid items-center gap-4 pt-7 sm:gap-8 sm:pt-10 lg:grid-cols-[1.1fr_1fr] lg:gap-10">
         <motion.div
           initial="hidden"
           animate="show"
           variants={{ hidden: {}, show: { transition: { staggerChildren: 0.1 } } }}
-          className="order-1 space-y-6 lg:order-1"
+           className="order-1 space-y-5 sm:space-y-6 lg:order-1"
         >
           <motion.p
             variants={{ hidden: { opacity: 0, y: 22 }, show: { opacity: 1, y: 0 } }}
@@ -71,7 +71,7 @@ function Home() {
           <motion.h1
             variants={{ hidden: { opacity: 0, y: 34, scale: 0.96 }, show: { opacity: 1, y: 0, scale: 1 } }}
             transition={{ type: "spring", stiffness: 150, damping: 16 }}
-            className="max-w-2xl font-display text-[2.6rem] font-extrabold leading-[1.02] tracking-tight sm:text-6xl lg:text-[4.1rem]"
+            className="max-w-2xl font-display text-[2.55rem] font-extrabold leading-[1.02] sm:text-6xl lg:text-[4.1rem]"
           >
             Crescent &amp; Pearl <span className="foil-text foil-animate">Dental</span>
           </motion.h1>
@@ -131,9 +131,9 @@ function Home() {
           </motion.div>
         </motion.div>
 
-        <div className="order-2 lg:order-2">
+        <div className="order-2 -mt-1 lg:order-2 lg:mt-0">
           <HeroCaddy />
-          <p className="mt-2 text-center text-[11px] font-semibold text-muted-foreground">
+          <p className="-mt-2 text-center text-[10px] font-semibold text-muted-foreground sm:mt-2 sm:text-[11px]">
             Illustration · demonstration clinic, not a real practice
           </p>
         </div>
@@ -153,7 +153,7 @@ function Home() {
           <span className="rounded-full bg-primary/15 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
             Pick your treatment
           </span>
-          <h2 className="mt-3 font-hero text-4xl uppercase sm:text-5xl">What brings you in today?</h2>
+           <h2 className="mt-3 text-4xl font-extrabold sm:text-5xl">What brings you in today?</h2>
           <p className="mt-2 text-sm text-muted-foreground">Know what you need? Pick a visit below. Unsure? Tell Caddy in your own words.</p>
         </div>
         <SpecializationPills />
@@ -169,7 +169,7 @@ function Home() {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, amount: 0.15 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
-        className="pt-16"
+         className="pt-14 sm:pt-16"
       >
         <DoctorCarousel />
       </motion.div>

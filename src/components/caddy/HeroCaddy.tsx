@@ -1,8 +1,8 @@
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
-import heroArt from "@/assets/caddy-hero.png";
+import heroArt from "@/assets/hero-dentist.png";
 
 /**
- * Hero visual: a warm dental clinic illustration with idle float,
+ * Hero visual: a friendly human dentist with idle float,
  * pointer parallax tilt, a breathing glow halo and floating trust chips.
  */
 export function HeroCaddy() {
@@ -19,7 +19,7 @@ export function HeroCaddy() {
 
   return (
     <motion.div
-      className="relative mx-auto w-full max-w-[460px] [perspective:1000px]"
+      className="relative mx-auto w-full max-w-[280px] sm:max-w-[360px] lg:max-w-[440px] [perspective:1000px]"
       initial={{ opacity: 0, scale: 0.9, y: 24 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ type: "spring", stiffness: 120, damping: 14, mass: 1 }}
@@ -33,27 +33,27 @@ export function HeroCaddy() {
         py.set(0);
       }}
     >
-      <div className="relative aspect-square w-full">
+      <div className="relative aspect-[4/5] w-full sm:aspect-square">
         {/* breathing glow halo */}
         <motion.div
           aria-hidden
-          className="absolute inset-6 rounded-full bg-primary/30 blur-3xl"
+          className="absolute inset-x-5 bottom-5 top-16 rounded-full bg-primary/25 blur-3xl sm:inset-6"
           animate={{ scale: [1, 1.12, 1], opacity: [0.5, 0.8, 0.5] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
           aria-hidden
-          className="absolute inset-10 rounded-full border border-primary/25"
+          className="absolute inset-x-8 bottom-6 top-14 rounded-full border border-primary/25 sm:inset-10"
           animate={{ rotate: 360 }}
           transition={{ duration: 26, repeat: Infinity, ease: "linear" }}
         />
 
         <motion.img
           src={heroArt}
-          alt="Caddy, the friendly Crescent & Pearl Dental companion"
+          alt="A friendly Crescent & Pearl dentist welcoming patients"
           width={1024}
           height={1024}
-          className="relative z-10 size-full rounded-[2.5rem] object-cover drop-shadow-[0_28px_45px_rgba(0,0,0,0.28)]"
+          className="relative z-10 size-full object-contain drop-shadow-[0_22px_28px_color-mix(in_oklab,var(--charcoal)_22%,transparent)]"
           style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
           animate={{ y: [0, -14, 0] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
@@ -61,8 +61,8 @@ export function HeroCaddy() {
       </div>
 
       {[
-        { label: "Sterilized instruments", pos: "left-0 top-10" },
-        { label: "Itemized estimates", pos: "right-0 bottom-16" },
+        { label: "Gentle care", pos: "left-0 top-10" },
+        { label: "Clear estimates", pos: "right-0 bottom-12" },
       ].map((chip, i) => (
         <motion.span
           key={chip.label}
