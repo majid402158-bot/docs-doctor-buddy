@@ -58,7 +58,7 @@ function Home() {
           initial="hidden"
           animate="show"
           variants={{ hidden: {}, show: { transition: { staggerChildren: 0.1 } } }}
-          className="order-2 space-y-6 lg:order-1"
+          className="order-1 space-y-6 lg:order-1"
         >
           <motion.p
             variants={{ hidden: { opacity: 0, y: 22 }, show: { opacity: 1, y: 0 } }}
@@ -131,7 +131,7 @@ function Home() {
           </motion.div>
         </motion.div>
 
-        <div className="order-1 lg:order-2">
+        <div className="order-2 lg:order-2">
           <HeroCaddy />
           <p className="mt-2 text-center text-[11px] font-semibold text-muted-foreground">
             Illustration · demonstration clinic, not a real practice

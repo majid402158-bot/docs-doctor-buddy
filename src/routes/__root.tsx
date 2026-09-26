@@ -10,7 +10,6 @@ import {
 import { useEffect, type ReactNode } from "react";
 import { MotionConfig } from "motion/react";
 import { CaddyProvider } from "../lib/caddy-context";
-import { BootLoader } from "../components/caddy/BootLoader";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -80,8 +79,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Caddy Care" },
-      { name: "description", content: "Premium doctor and dentist appointment booking." },
+      { title: "Crescent & Pearl Dental" },
+      { name: "description", content: "Comfortable, transparent family dental care with easy online booking." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -128,7 +127,6 @@ function RootComponent() {
       <CaddyProvider>
         {/* reducedMotion="user" strips transform/loop motion for users who ask for it */}
         <MotionConfig reducedMotion="user">
-          <BootLoader />
           {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
           <Outlet />
         </MotionConfig>

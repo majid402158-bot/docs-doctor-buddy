@@ -1,8 +1,8 @@
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
-import doctorArt from "@/assets/caddy-doctor.png";
+import heroArt from "@/assets/hero-dental.jpg";
 
 /**
- * Hero visual: an anime-styled doctor illustration with idle float,
+ * Hero visual: a warm dental clinic illustration with idle float,
  * pointer parallax tilt, a breathing glow halo and floating trust chips.
  */
 export function HeroCaddy() {
@@ -49,11 +49,11 @@ export function HeroCaddy() {
         />
 
         <motion.img
-          src={doctorArt}
-          alt="Caddy, the Crescent &amp; Pearl dental care mascot (illustration)"
+          src={heroArt}
+          alt="Illustration of a friendly dentist with a smiling patient at Crescent & Pearl Dental"
           width={1024}
           height={1024}
-          className="relative z-10 size-full object-contain drop-shadow-[0_28px_45px_rgba(0,0,0,0.28)]"
+          className="relative z-10 size-full rounded-[2.5rem] object-cover drop-shadow-[0_28px_45px_rgba(0,0,0,0.28)]"
           style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
           animate={{ y: [0, -14, 0] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
