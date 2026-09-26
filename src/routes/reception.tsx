@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { Search, UserPlus } from "lucide-react";
 import { DemoBadge, PageShell } from "@/components/caddy/PageShell";
+import { StaffGate } from "@/components/caddy/StaffGate";
 import { Chip, Panel, StatCard } from "@/components/clinic/Workspace";
 import { pkr } from "@/lib/clinic-data";
 
@@ -49,6 +50,7 @@ function Reception() {
   const list = rows.filter((r) => r.patient.toLowerCase().includes(q.toLowerCase()) || r.token.toLowerCase().includes(q.toLowerCase()));
 
   return (
+    <StaffGate area="Reception">
     <PageShell urgent={false}>
       <div className="flex flex-wrap items-center justify-between gap-3 pt-10">
         <h1 className="text-3xl font-extrabold">Reception</h1>
@@ -142,5 +144,6 @@ function Reception() {
         </div>
       </div>
     </PageShell>
+    </StaffGate>
   );
 }

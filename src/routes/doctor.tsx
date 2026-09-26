@@ -43,6 +43,7 @@ function DoctorConsole() {
   const { state } = useCaddy();
 
   return (
+    <StaffGate area="Dentist workspace">
     <main className="relative min-h-screen overflow-x-hidden">
       <div aria-hidden className="clinic-grain pointer-events-none absolute inset-0 opacity-60" />
       <div className="relative mx-auto max-w-6xl px-5 pt-6 sm:px-8">
@@ -209,5 +210,6 @@ function DoctorConsole() {
 
       <SiteFooter />
     </main>
+    </StaffGate>
   );
 }
