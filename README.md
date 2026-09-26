@@ -27,6 +27,8 @@ Separate clinic branding does **not** mean duplicated business logic. Appointmen
 - Financial and clinical mutations are transactional; retryable operations use idempotency keys.
 - Oracle Free Tier is the pilot deployment target, not a guarantee of unlimited capacity or uptime.
 
+See [docs/README.md](docs/README.md) for the full documentation index.
+
 ## Documentation map
 
 Read in this order:
@@ -38,7 +40,7 @@ Read in this order:
 5. [Security and privacy](docs/SECURITY_AND_PRIVACY.md) — access control, medical data, AI rules, audit, and incident response.
 6. [System control](docs/SYSTEM_CONTROL.md) — platform operator controls, plans, limits, support access, and health.
 7. [Operations](docs/OPERATIONS.md) — Oracle deployment, monitoring, backup/restore, scaling, and cost controls.
-8. [Dental clinic demo](docs/DENTAL_CLINIC_DEMO.md) — the first clinic UI, realistic workflows, and completion checklist.
+8. [My Clinic frontend spec](docs/MYCLINIC_FRONTEND.md) — the first clinic UI, screen by screen, and completion checklist.
 9. [Implementation roadmap](docs/IMPLEMENTATION_ROADMAP.md) — build sequence, tests, gates, and deferred work.
 
 ## Current technology
