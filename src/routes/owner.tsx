@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { KeyRound, ShieldCheck } from "lucide-react";
 import { DemoBadge, PageShell } from "@/components/caddy/PageShell";
+import { StaffGate } from "@/components/caddy/StaffGate";
 import { Chip, Panel, StatCard } from "@/components/clinic/Workspace";
 import { SERVICES, pkr, priceLabel } from "@/lib/clinic-data";
 

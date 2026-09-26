@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Activity, ChevronRight, Stethoscope } from "lucide-react";
 import { NotificationBell } from "@/components/caddy/NotificationCenter";
 import { SiteFooter } from "@/components/caddy/SiteFooter";
+import { StaffGate } from "@/components/caddy/StaffGate";
 import { Odontogram } from "@/components/clinic/Odontogram";
 import { DOCTOR_PATIENTS, type PatientHistory } from "@/lib/caddy-store";
 import { useCaddy } from "@/lib/caddy-context";
