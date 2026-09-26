@@ -16,13 +16,13 @@ import {
 export const Route = createFileRoute("/queue")({
   head: () => ({
     meta: [
-      { title: "Live queue · Caddy Care" },
+      { title: "Live queue · Crescent & Pearl" },
       {
         name: "description",
         content:
           "Watch your clinic queue move in real time — animated token board, live wait estimate and a nudge from Caddy when it's time to leave home.",
       },
-      { property: "og:title", content: "Live queue · Caddy Care" },
+      { property: "og:title", content: "Live queue · Crescent & Pearl" },
       {
         property: "og:description",
         content: "An animated token board that tells you exactly when to leave.",

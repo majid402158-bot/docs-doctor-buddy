@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { KeyRound, ShieldCheck } from "lucide-react";
 import { DemoBadge, PageShell } from "@/components/caddy/PageShell";
+import { StaffGate } from "@/components/caddy/StaffGate";
 import { Chip, Panel, StatCard } from "@/components/clinic/Workspace";
 import { SERVICES, pkr, priceLabel } from "@/lib/clinic-data";
 
@@ -44,6 +45,7 @@ const AUDIT = [
 function Owner() {
   const max = Math.max(...REVENUE.map((r) => r.v));
   return (
+    <StaffGate area="Clinic owner">
     <PageShell urgent={false}>
       <div className="flex flex-wrap items-center justify-between gap-3 pt-10">
         <h1 className="text-3xl font-extrabold">Clinic owner</h1>
@@ -110,5 +112,6 @@ function Owner() {
         </Panel>
       </div>
     </PageShell>
+    </StaffGate>
   );
 }

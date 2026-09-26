@@ -145,7 +145,7 @@ export const POPULATED: ProfileMock = {
       value: 34,
       icon: "visits",
       tint: "care",
-      hint: "across 6 clinics",
+      hint: "at this clinic",
     },
     {
       key: "appointments",
@@ -245,55 +245,46 @@ export const POPULATED: ProfileMock = {
     {
       id: "v3",
       doctor: "Dr. Lena Haq",
-      specialty: "Dermatologist",
+      specialty: "Orthodontist",
       photo: doc3,
       date: "28 Jun 2026",
-      complaint: "Hormonal acne along jawline",
+      complaint: "Clear aligner review — tray 8 of 22",
       complaintDetail:
-        "Recurring inflamed papules along the jawline and chin, worse in the week before menstruation, with post-inflammatory pigmentation.",
+        "Routine aligner progress check. Lower incisors tracking well; slight gap on the upper left premolar needing an extra week on tray 8.",
       status: "Completed",
       notes:
-        "Started on a topical retinoid at night with strict SPF in the morning. Reviewed skincare routine and removed two comedogenic products.",
+        "Wear tray 8 for one additional week, then continue as planned. Chewies recommended twice daily for better seating. Next review in 6 weeks.",
       medicines: [
         {
-          name: "Adapalene 0.1%",
-          dosage: "Pea-sized amount",
-          duration: "12 weeks",
-          instructions: "Apply at night on dry skin, three nights a week to start.",
-        },
-        {
-          name: "Mineral SPF 50",
-          dosage: "Two fingers",
+          name: "Fluoride mouthwash 0.05%",
+          dosage: "10 ml rinse",
           duration: "Ongoing",
-          instructions: "Every morning, reapply every 3 hours outdoors.",
+          instructions: "Once daily at night, after brushing, with aligners out.",
         },
       ],
-      attachments: [{ label: "Treatment plan", kind: "prescription" }],
+      attachments: [{ label: "Aligner progress scan", kind: "image" }],
     },
     {
       id: "v4",
       doctor: "Dr. Imran Qadri",
-      specialty: "Pediatrician",
+      specialty: "Pediatric dentist",
       photo: doc4,
       date: "11 May 2026",
-      complaint: "Annual wellness check",
+      complaint: "Child check-up and fluoride varnish",
       complaintDetail:
-        "Routine adult wellness screening — vitals, weight trend, vitamin D and thyroid panel with a lifestyle review.",
+        "Routine six-month check-up for the patient's 7-year-old daughter — new molars erupting, no cavities, mild plaque at the gumline.",
       status: "Completed",
       notes:
-        "All vitals within range. Vitamin D insufficient at 18 ng/mL; weekly supplement started. Recheck in three months.",
+        "Fluoride varnish applied. Demonstrated supervised brushing technique; sealants recommended on the first permanent molars at the next visit.",
       medicines: [
         {
-          name: "Vitamin D3 50,000 IU",
-          dosage: "1 capsule",
-          duration: "8 weeks",
-          instructions: "Once weekly with the heaviest meal of the day.",
+          name: "Children's fluoride toothpaste 1000ppm",
+          dosage: "Pea-sized amount",
+          duration: "Ongoing",
+          instructions: "Twice daily, supervised brushing, spit don't rinse.",
         },
       ],
-      attachments: [
-        { label: "Vitals summary", kind: "lab" },
-        { label: "Thyroid panel", kind: "lab" },
-      ],
+      attachments: [{ label: "Child check-up notes", kind: "prescription" }],
     },
   ],
   prescriptions: [

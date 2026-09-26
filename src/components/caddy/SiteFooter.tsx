@@ -147,20 +147,8 @@ export function SiteFooter() {
             </div>
           </div>
 
-          {/* medium caddy wordmark */}
-          <motion.p
-            aria-hidden
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ type: "spring", stiffness: 120, damping: 20 }}
-            className="hero-title mt-12 select-none text-center text-[10vw] leading-none sm:text-[7vw]"
-          >
-            Crescent &amp; Pearl
-          </motion.p>
-
-          <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-5 text-[0.7rem] font-semibold text-muted-foreground">
-            <p>© {new Date().getFullYear()} Crescent & Pearl Dental (demo) · Powered by Caddy Care</p>
+          <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-5 text-[0.7rem] font-semibold text-muted-foreground">
+            <p>© {new Date().getFullYear()} Crescent & Pearl Dental (demo)</p>
             <p className="inline-flex items-center gap-1.5">
               Made with
               <motion.span

@@ -9,13 +9,13 @@ import { EMPTY_PROFILE, type Role } from "@/lib/caddy-store";
 export const Route = createFileRoute("/login")({
   head: () => ({
     meta: [
-      { title: "Sign in · Caddy Care" },
+      { title: "Sign in · Crescent & Pearl" },
       {
         name: "description",
         content:
-          "Sign in to Caddy Care to track your live queue position, open your health vault and see every visit in one place.",
+          "Sign in to Crescent & Pearl to track your live queue position, open your health vault and see every visit in one place.",
       },
-      { property: "og:title", content: "Sign in · Caddy Care" },
+      { property: "og:title", content: "Sign in · Crescent & Pearl" },
       {
         property: "og:description",
         content: "Your queue, reports and care streak — all behind one secure sign in.",
@@ -65,7 +65,7 @@ function LoginPage() {
       subtitle="Sign in to see your queue position, reports and follow-ups."
       footer={
         <>
-          New to Caddy Care?{" "}
+          New to Crescent & Pearl?{" "}
           <Link to="/signup" className="font-extrabold text-primary">
             Create an account
           </Link>
