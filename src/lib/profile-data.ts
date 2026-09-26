@@ -283,12 +283,8 @@ export const POPULATED: ProfileMock = {
           duration: "Ongoing",
           instructions: "Twice daily, supervised brushing, spit don't rinse.",
         },
-        },
       ],
-      attachments: [
-        { label: "Vitals summary", kind: "lab" },
-        { label: "Thyroid panel", kind: "lab" },
-      ],
+      attachments: [{ label: "Child check-up notes", kind: "prescription" }],
     },
   ],
   prescriptions: [
