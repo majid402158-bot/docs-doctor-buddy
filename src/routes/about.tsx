@@ -3,6 +3,15 @@ import { HeartHandshake, Lock, ShieldCheck, Stethoscope } from "lucide-react";
 import { PageHeader, PageShell, Reveal } from "@/components/caddy/PageShell";
 import { FaqItem } from "@/components/clinic/FaqItem";
 import { FAQ, JOURNEY, STERILIZATION, WHAT_TO_BRING } from "@/lib/clinic-data";
+import clinicInterior from "@/assets/clinic-interior.jpg";
+import dentistPatient from "@/assets/dentist-patient.jpg";
+import smileCloseup from "@/assets/smile-closeup.jpg";
+
+const GALLERY = [
+  { src: clinicInterior, alt: "The treatment room at Crescent & Pearl — modern chair, natural light", caption: "Our treatment room" },
+  { src: dentistPatient, alt: "A dentist talking with a smiling patient before treatment", caption: "Every plan explained first" },
+  { src: smileCloseup, alt: "Close-up of a healthy, bright smile", caption: "The goal: a healthy smile" },
+];
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -39,6 +48,14 @@ function AboutPage() {
             <Icon aria-hidden className="size-6 text-primary" />
             <h2 className="mt-2 text-xl font-extrabold">{t}</h2>
             <p className="mt-1 text-sm text-muted-foreground">{b}</p>
+          </Reveal>
+        ))}
+      </div>
+      <div className="mt-10 grid gap-4 sm:grid-cols-3">
+        {GALLERY.map((g, i) => (
+          <Reveal key={g.caption} delay={i * 0.06} className="glass-card overflow-hidden rounded-3xl">
+            <img src={g.src} alt={g.alt} width={1024} height={768} loading="lazy" className="aspect-[4/3] w-full object-cover" />
+            <p className="px-4 py-3 text-sm font-bold">{g.caption}</p>
           </Reveal>
         ))}
       </div>
