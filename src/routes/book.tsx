@@ -176,7 +176,7 @@ function BookPage() {
                   <motion.div className="h-full rounded-full bg-primary" initial={false} animate={{ width: i < step ? "100%" : i === step ? "50%" : "0%" }} transition={{ type: "spring", stiffness: 140, damping: 20 }} />
                 </div>
                 <p className={`mt-1.5 hidden text-xs font-bold sm:block ${i === step ? "text-foreground" : "text-muted-foreground"}`}>
-                  {i < step && <Check aria-hidden className="mr-0.5 inline size-3 text-primary" />}{s}
+                  {i < step && <Check aria-hidden className="mr-0.5 inline size-3 text-primary" />}{i + 1}. {s}
                 </p>
               </button>
             </li>
@@ -197,21 +197,30 @@ function BookPage() {
               {step === 0 && (
                 <fieldset>
                   <legend className="text-xl font-extrabold">What would you like to book?</legend>
-                  <div className="mt-4 grid gap-2 sm:grid-cols-2">
-                    {[...SERVICES, { id: UNSURE, name: "I am not sure", duration: "30 min", region: "all" as const }].map((s) => {
-                      const on = service === s.id;
-                      return (
-                        <motion.label key={s.id} whileHover="hover" whileTap={{ scale: 0.98 }} className={`flex min-h-14 cursor-pointer items-center gap-3 rounded-2xl border-2 p-3 ${on ? "border-primary bg-primary/10" : "border-transparent bg-card/70"}`}>
-                          <input type="radio" name="service" className="sr-only" checked={on} onChange={() => setService(s.id)} />
-                          <ToothRegionIcon region={s.region} />
-                          <span className="min-w-0 flex-1">
-                            <span className="block text-sm font-extrabold">{s.name}</span>
-                            <span className="block text-xs text-muted-foreground">{"rate" in s ? `${s.duration} · ${priceLabel(s)}` : "We'll start with a consultation"}</span>
-                          </span>
-                          {on && <Check aria-hidden className="size-4 text-primary" />}
-                        </motion.label>
-                      );
-                    })}
+                  <div className="mt-4 space-y-5">
+                    {Object.entries(
+                      [...SERVICES, { id: UNSURE, name: "I am not sure", duration: "30 min", region: "all" as const, category: "Not sure" }].reduce<Record<string, typeof SERVICES>>( (acc, s) => { (acc[s.category] ??= []).push(s as (typeof SERVICES)[number]); return acc; }, {}),
+                    ).map(([cat, items]) => (
+                      <div key={cat}>
+                        <p className="mb-2 text-xs font-extrabold uppercase tracking-wider text-muted-foreground">{cat}</p>
+                        <div className="grid gap-2 sm:grid-cols-2">
+                          {items.map((s) => {
+                            const on = service === s.id;
+                            return (
+                              <motion.label key={s.id} whileHover="hover" whileTap={{ scale: 0.98 }} className={`flex min-h-14 cursor-pointer items-center gap-3 rounded-2xl border-2 p-3 ${on ? "border-primary bg-primary/10" : "border-transparent bg-card/70"}`}>
+                                <input type="radio" name="service" className="sr-only" checked={on} onChange={() => setService(s.id)} />
+                                <ToothRegionIcon region={s.region} />
+                                <span className="min-w-0 flex-1">
+                                  <span className="block text-sm font-extrabold">{s.name}</span>
+                                  <span className="block text-xs text-muted-foreground">{"rate" in s ? `${s.duration} · ${priceLabel(s)}` : "We'll start with a consultation"}</span>
+                                </span>
+                                {on && <Check aria-hidden className="size-4 text-primary" />}
+                              </motion.label>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    ))}
                   </div>
                   {err("service")}
                   {service === "emergency" && (
@@ -328,9 +337,11 @@ function BookPage() {
           </AnimatePresence>
 
           <div className="mt-6 flex items-center justify-between gap-3 border-t border-border pt-5">
-            <button type="button" onClick={() => go(step - 1)} disabled={step === 0} className="flex min-h-11 items-center gap-1.5 rounded-full px-4 text-sm font-bold disabled:opacity-40">
-              <ArrowLeft aria-hidden className="size-4" /> Back
-            </button>
+            {step === 0 ? <span /> : (
+              <button type="button" onClick={() => go(step - 1)} className="flex min-h-11 items-center gap-1.5 rounded-full px-4 text-sm font-bold">
+                <ArrowLeft aria-hidden className="size-4" /> Back
+              </button>
+            )}
             {step < 4 ? (
               <motion.button type="button" whileTap={{ y: 3 }} onClick={() => go(step + 1)} className="btn-3d flex min-h-11 items-center gap-1.5 rounded-full bg-primary px-6 text-sm font-extrabold text-primary-foreground">
                 Continue <ArrowRight aria-hidden className="size-4" />
