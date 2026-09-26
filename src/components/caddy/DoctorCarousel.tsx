@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform, type MotionValue } from "motion/react";
+import { motion } from "motion/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
   BadgeCheck,
@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { DOCTORS, type Doctor } from "@/lib/home-data";
 import { Link } from "@tanstack/react-router";
+import { Button } from "@/components/ui/button";
 
 
 const spring = { type: "spring" as const, stiffness: 260, damping: 22 };
@@ -17,33 +18,18 @@ const spring = { type: "spring" as const, stiffness: 260, damping: 22 };
 function DoctorCard({
   doctor,
   index,
-  progress,
-  total,
 }: {
   doctor: Doctor;
   index: number;
-  progress: MotionValue<number>;
-  total: number;
 }) {
-  // Coverflow: scroll progress → per-card 3D rotation, so the card nearest the
-  // centre faces the viewer while its neighbours angle away.
-  const center = index / Math.max(1, total - 1);
-  const rotateY = useTransform(progress, [center - 0.45, center, center + 0.45], [24, 0, -24], {
-    clamp: true,
-  });
-  const scale = useTransform(progress, [center - 0.45, center, center + 0.45], [0.94, 1, 0.94], {
-    clamp: true,
-  });
-
   return (
     <motion.article
-      style={{ rotateY, scale, transformPerspective: 1200 }}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.35 }}
       whileHover={{ y: -12, boxShadow: "var(--shadow-card-hover)" }}
       transition={{ ...spring, delay: index * 0.07 }}
-      className="glass-card group relative w-[min(300px,84vw)] shrink-0 snap-center overflow-hidden rounded-4xl p-6 sm:w-[300px]"
+      className="group relative w-[min(310px,86vw)] shrink-0 snap-center overflow-hidden rounded-lg border border-border bg-card p-5 shadow-[var(--shadow-card)] sm:w-[310px]"
     >
       {/* soft gradient wash that blooms on hover */}
       <motion.div
@@ -109,18 +95,12 @@ function DoctorCard({
         ))}
       </div>
 
-      <dl className="relative mt-4 grid grid-cols-3 gap-2 rounded-3xl bg-secondary/60 p-3 text-center">
+      <dl className="relative mt-4 grid grid-cols-2 gap-2 rounded-md bg-secondary/60 p-3 text-center">
         <div>
           <dt className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
             Languages
           </dt>
           <dd className="mt-0.5 text-[11px] font-extrabold leading-tight">{doctor.languages}</dd>
-        </div>
-        <div>
-          <dt className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
-            Experience
-          </dt>
-          <dd className="mt-0.5 text-sm font-extrabold">{doctor.experience}</dd>
         </div>
         <div>
           <dt className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
@@ -200,13 +180,13 @@ export function DoctorCarousel() {
 
 
   return (
-    <section className="space-y-5">
+    <section className="space-y-5" aria-labelledby="dentist-finder-title">
       <motion.header
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.4 }}
         variants={{ hidden: {}, show: { transition: { staggerChildren: 0.07 } } }}
-        className="flex flex-wrap items-end justify-between gap-4"
+        className="grid grid-cols-[minmax(0,1fr)_auto] items-end gap-4"
       >
         <div className="space-y-2">
           <motion.span
@@ -219,30 +199,7 @@ export function DoctorCarousel() {
             Our dental team
           </motion.span>
 
-          <h2 className="flex flex-wrap items-baseline gap-x-3 text-[clamp(2rem,6vw,3.4rem)] leading-[0.95] font-black tracking-[-0.04em]">
-            {["Meet", "our dentists"].map((word, i) => (
-              <motion.span
-                key={word}
-                variants={{
-                  hidden: { opacity: 0, y: 28, rotateX: -55 },
-                  show: {
-                    opacity: 1,
-                    y: 0,
-                    rotateX: 0,
-                    transition: { type: "spring", stiffness: 180, damping: 16 },
-                  },
-                }}
-                className={
-                  i === 1
-                    ? "bg-gradient-to-r from-primary via-primary to-foreground bg-clip-text text-transparent italic"
-                    : ""
-                }
-                style={{ transformOrigin: "bottom" }}
-              >
-                {word}
-              </motion.span>
-            ))}
-          </h2>
+          <motion.h2 id="dentist-finder-title" variants={{ hidden: { opacity: 0, y: 28 }, show: { opacity: 1, y: 0, transition: spring } }} className="text-4xl font-extrabold leading-tight sm:text-5xl">Find your dentist</motion.h2>
 
           <motion.p
             variants={{
@@ -251,7 +208,7 @@ export function DoctorCarousel() {
             }}
             className="max-w-md text-sm text-muted-foreground"
           >
-            Swipe or use the arrows — Caddy shuffles the deck for you.
+            Compare focus areas and choose who feels right for your visit.
           </motion.p>
         </div>
 
@@ -260,7 +217,7 @@ export function DoctorCarousel() {
             hidden: { opacity: 0, scale: 0.85 },
             show: { opacity: 1, scale: 1, transition: { type: "spring", stiffness: 260, damping: 18 } },
           }}
-          className="inline-flex items-center gap-2 rounded-full bg-secondary px-3 py-1 text-xs font-bold text-muted-foreground"
+          className="hidden items-center gap-2 rounded-full bg-secondary px-3 py-1 text-xs font-bold text-muted-foreground sm:inline-flex"
         >
           <span className="size-2 animate-pulse rounded-full bg-primary" />
           {DOCTORS.length} demo profiles
@@ -280,7 +237,6 @@ export function DoctorCarousel() {
                 doctor={d}
                 index={i}
                 total={DOCTORS.length}
-                progress={scrollXProgress}
               />
             ))}
           </div>
@@ -291,23 +247,13 @@ export function DoctorCarousel() {
           const disabled = dir === -1 ? edges.start : edges.end;
           const Icon = dir === -1 ? ChevronLeft : ChevronRight;
           return (
-            <motion.button
-              key={dir}
-              type="button"
-              onClick={() => scrollBy(dir)}
-              disabled={disabled}
-              aria-label={dir === -1 ? "Previous doctors" : "Next doctors"}
-              whileHover={{ scale: disabled ? 1 : 1.08 }}
-              whileTap={{ scale: disabled ? 1 : 0.94 }}
-              transition={{ type: "spring", stiffness: 460, damping: 18 }}
-              className={`glass-card absolute top-1/2 z-10 hidden size-11 -translate-y-1/2 place-items-center rounded-full text-foreground sm:grid ${
-                dir === -1 ? "-left-3" : "-right-3"
-              } ${disabled ? "pointer-events-none opacity-0" : "opacity-100"}`}
-            >
-              <Icon aria-hidden className="size-5" />
-            </motion.button>
+            <Button key={dir} type="button" variant="outline" size="icon" onClick={() => scrollBy(dir)} disabled={disabled} aria-label={dir === -1 ? "Previous dentists" : "Next dentists"} className={`absolute top-1/2 z-10 hidden size-11 -translate-y-1/2 rounded-full sm:inline-flex ${dir === -1 ? "-left-3" : "-right-3"}`}><Icon aria-hidden className="size-5" /></Button>
           );
         })}
+      </div>
+
+      <div className="flex justify-center">
+        <Button asChild variant="outline" className="h-11 rounded-md px-5 font-extrabold"><Link to="/dentists">View all dentists</Link></Button>
       </div>
 
     </section>

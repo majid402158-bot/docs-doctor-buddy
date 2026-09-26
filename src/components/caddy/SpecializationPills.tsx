@@ -68,11 +68,11 @@ export function SpecializationPills() {
                       className="size-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-transparent to-transparent" />
-                  <span className="absolute left-3 top-3 rounded-full bg-background/90 px-2.5 py-1 font-hero text-sm text-primary">
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/15 to-transparent" />
+                  <span className="absolute left-3 top-3 hidden rounded-full bg-background/90 px-2.5 py-1 text-sm font-extrabold text-primary sm:block">
                     0{i + 1}
                   </span>
-                  <h3 className="absolute bottom-3 left-4 right-4 font-hero text-2xl uppercase tracking-wide text-background sm:text-3xl">
+                  <h3 className="absolute bottom-3 left-4 right-4 text-xl font-extrabold leading-tight text-background sm:text-3xl">
                     {s.label}
                   </h3>
                 </div>
